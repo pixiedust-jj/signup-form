@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #141E30, #243B55, #41295a);
+  color: #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  background: rgba(20, 25, 35, 0.95);
+  border: 1px solid rgba(120, 140, 255, 0.2);      /* faint bluish border */
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 0 25px rgba(80, 100, 255, 0.15);   /* soft blue glow */
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+  
+/* === HOVER EFFECT === */
+.container:hover {
+  box-shadow: 0 0 35px rgba(100, 140, 255, 0.4);   /* brighter glow on hover */
+  border-color: rgba(140, 160, 255, 0.6);
+  transform: translateY(-3px);                     /* slight lift effect */
+}
+
+/* === INPUT FOCUS EFFECT (optional but pretty) === */
+.container input:focus,
+.container textarea:focus,
+.container select:focus {
+  border-color: #738dff;
+  box-shadow: 0 0 8px rgba(115, 141, 255, 0.6);
+  outline: none;
+  transition: 0.3s;
+}
+
+/* IMAGE ON LEFT */
+.image-section {
+  flex: 0.6;
+  background: #000;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 12px 12px 0;
+}
+
+/* FORM SECTION */
+.form-section {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* HIDE RADIO BUTTONS */
+input[type="radio"][name="tab"] {
+  display: none;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+/* Tabs Headings (Sign Up / Login) */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 33px;
+}
+
+/* Base tab styling */
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 600;
+  cursor: pointer;
+  color: #b79cff; /* inactive purple */
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Active tab underline + subtle neon */
+#signup:checked ~ .tabs label[for="signup"],
+#login:checked ~ .tabs label[for="login"] {
+  color: #a368ff; /* active purple */
+}
+
+/* Small underline under active tab */
+#signup:checked ~ .tabs label[for="signup"]::after,
+#login:checked ~ .tabs label[for="login"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;       /* make underline shorter */
+  width: 50%;      /* half of tab width */
+  height: 3px;
+  background: #a368ff;
+  border-radius: 2px;
+  box-shadow: 0 0 6px #a368ff; /* subtle neon glow */
+}
+
+/* Inactive tabs have no underline */
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+}
+
+
+/* FORM WRAPPER */
+.form-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* FORM SWITCHING */
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Show selected form */
+#signup:checked ~ .tabs ~ .form-wrapper .signup-form {
+  display: flex;
+}
+
+#login:checked ~ .tabs ~ .form-wrapper .login-form {
+  display: flex;
+}
+
+/* Form Titles - tech blue-purple shade, left-aligned, no glow */
+.form h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: left;
+  color: #6ab0ff;
+  margin-bottom: 20px;
+}
+
+/* INPUTS & LABELS */
+label {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+input, select {
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #0d1117;
+  color: #fff;
+  transition: border 0.3s;
+}
+
+input::placeholder {
+  color: #777;
+}
+
+input:focus, select:focus {
+  border-color: #8b5cf6;
+  outline: none;
+}
+
+.btn {
+  background: linear-gradient(90deg, #00d1ff, #8b5cf6);
+  color: #141E30;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 1000;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .image-section {
+    height: 250px;
+  }
+}

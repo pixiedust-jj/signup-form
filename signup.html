@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up / Login</title>
+  <link rel="stylesheet" href="tech.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+
+    <!-- IMAGE ON LEFT -->
+    <div class="image-section">
+      <img src="https://i.pinimg.com/736x/0c/d0/a5/0cd0a5ce0ae1712db0bf779daecdd351.jpg" alt="Tech Illustration">
+    </div>
+
+    <!-- FORM SECTION -->
+    <div class="form-section">
+
+      <!-- RADIO INPUTS FOR TABS -->
+      <input type="radio" id="signup" name="tab" checked>
+      <input type="radio" id="login" name="tab">
+
+      <!-- TABS -->
+      <div class="tabs">
+        <label for="signup" class="tab">Sign Up</label>
+        <label for="login" class="tab">Login</label>
+      </div>
+
+      <!-- FORMS -->
+      <div class="form-wrapper">
+
+        <!-- SIGN UP FORM -->
+        <form class="form signup-form">
+          <h2>Create Account</h2>
+
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+
+          <button type="submit" class="btn">Sign Up</button>
+        </form>
+
+        <!-- LOGIN FORM -->
+        <form class="form login-form">
+          <h2>Welcome Back</h2>
+
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email" required>
+
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter password" required>
+
+          <button type="submit" class="btn">Login</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
